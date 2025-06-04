@@ -14,7 +14,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/NIDHARSAN-V",
   resume:
-    "https://drive.google.com/file/d/1l6TQQgX8rHIT4nj9wfvjzzarwOXO0Sj5/view?usp=drive_link",
+    "https://drive.google.com/file/d/10nCjK_1Fo25FzHv5EYV2xFFBFw3SFDJo/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/nidharsanv",
   twitter: "https://twitter.com/RishavChanda",
   instagram: "https://www.instagram.com/rishav_chanda/",
