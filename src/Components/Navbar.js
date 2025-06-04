@@ -14,7 +14,7 @@ const Nav = styled.div`
  font-size: 1.3rem;
  position: sticky;
  top: 0;
- z-index: 10;
+ z-index: 10000;
  width: 100%;
  color: white;
  box-shadow: 0px 4px 6px rgb(147, 45, 220); 
