@@ -50,7 +50,7 @@ const Loader = ({ onFinish }) => {
               opacity: 1,
               x: 0,
               y: 0,
-              rotate: 0,
+              rotate: 1,
               transition: { duration: 0.1 }
             })
           )
