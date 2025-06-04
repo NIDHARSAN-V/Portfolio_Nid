@@ -1,0 +1,11 @@
+Model Information:
+* title:	SpaceShip "Carelia"
+* source:	https://sketchfab.com/3d-models/spaceship-carelia-9f0b7bb00d6241ac80e772b79d6cecce
+* author:	Exiolite (https://sketchfab.com/Exiolite)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "SpaceShip "Carelia"" (https://sketchfab.com/3d-models/spaceship-carelia-9f0b7bb00d6241ac80e772b79d6cecce) by Exiolite (https://sketchfab.com/Exiolite) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

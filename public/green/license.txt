@@ -1,0 +1,11 @@
+Model Information:
+* title:	Spaceship - Dark, Clean
+* source:	https://sketchfab.com/3d-models/spaceship-dark-clean-48180f1a207a4355b04c7ff8be5be7db
+* author:	Sousinho (https://sketchfab.com/sousinho)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Spaceship - Dark, Clean" (https://sketchfab.com/3d-models/spaceship-dark-clean-48180f1a207a4355b04c7ff8be5be7db) by Sousinho (https://sketchfab.com/sousinho) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
