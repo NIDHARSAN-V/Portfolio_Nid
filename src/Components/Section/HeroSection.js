@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import HeroBgAnimation from '../../HeroAnimation';
 import Typewriter from "typewriter-effect"
 const HeroImg = require("../../images/hero.jpg");
+const BackImg = require("../../images/final.png");
 const skill = require("../../images/skill.png");
 const exp = require("../../images/exp.png");
 const proj = require("../../images/proj.png");
@@ -325,6 +326,54 @@ const HeroBg = styled.div`
   }
 `
 
+
+
+const FlipCard = styled.div`
+  background-color: transparent;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+    @media (max-width:640px) {
+    width:300px;
+    height: 300px;
+  }
+`;
+
+const FlipCardInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+
+  
+  ${FlipCard}:hover & {
+    transform: rotateY(180deg);
+  }
+`;
+
+const FlipCardFront = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+`;
+
+const FlipCardBack = styled(FlipCardFront)`
+  transform: rotateY(180deg);
+`;
+
+const ImgStyled = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 2px 2px 10px 10px rebeccapurple;
+  border: 3px solid ${({ theme }) => theme.primary};
+  object-fit: cover;
+`;
+
+
 function HeroSection() {
     return (
         <div id='about' style={{ position: 'relative', overflow: 'hidden' }}>
@@ -398,13 +447,21 @@ function HeroSection() {
                             </ResumeButton>
                         </HeroLeft>
 
-                        <HeroRight>
-                            <motion.div {...headContentAnimation}>
-                                <Tilt>
-                                    <Img src={HeroImg} alt="" />
-                                </Tilt>
-                            </motion.div>
-                        </HeroRight>
+                       <HeroRight>
+  <motion.div {...headContentAnimation}>
+    <FlipCard>
+      <FlipCardInner>
+        <FlipCardFront>
+          <ImgStyled src={HeroImg} alt="Front" />
+        </FlipCardFront>
+        <FlipCardBack>
+          <ImgStyled src={BackImg} alt="Back" />
+        </FlipCardBack>
+      </FlipCardInner>
+    </FlipCard>
+  </motion.div>
+</HeroRight>
+
                     </HeroInnerContainer>
                 </motion.div>
             </HeroContainer>
@@ -413,3 +470,6 @@ function HeroSection() {
 }
 
 export default HeroSection
+
+
+
