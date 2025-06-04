@@ -1,100 +1,95 @@
-import React from 'react'
-import styled, { ThemeProvider } from "styled-components"
-import {BrowserRouter, Router} from "react-router-dom"
-import { darkTheme } from './Utils/Themes'
-import Navbar from './Components/Navbar'
-import HeroSection from './Components/Section/HeroSection'
-import Skills from './Components/Section/Skills'
-import Experience from './Components/Section/Experience'
-import Education from './Components/Section/Education'
-import StyledStarCanvas from './Components/canvas/Stars'
-import Projects from './Components/Section/Projects'
-import Contact from './Components/Section/Contact'
-import Footer from './Components/Section/Footer'
-import Achievements from './Components/Section/Achievements'
+import React, { Suspense, useEffect, useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
+import { darkTheme } from './Utils/Themes';
+import Loader from './Loader'; // Your loader component
 
+// Lazy load all components
+const Navbar = React.lazy(() => import('./Components/Navbar'));
+const HeroSection = React.lazy(() => import('./Components/Section/HeroSection'));
+const Skills = React.lazy(() => import('./Components/Section/Skills'));
+const Experience = React.lazy(() => import('./Components/Section/Experience'));
+const Education = React.lazy(() => import('./Components/Section/Education'));
+const StyledStarCanvas = React.lazy(() => import('./Components/canvas/Stars'));
+const Projects = React.lazy(() => import('./Components/Section/Projects'));
+const Contact = React.lazy(() => import('./Components/Section/Contact'));
+const Footer = React.lazy(() => import('./Components/Section/Footer'));
+const Achievements = React.lazy(() => import('./Components/Section/Achievements'));
 
-
+// Styled Components
 const Body = styled.div`
-background-color: ${({theme}) =>theme.bg};
-/* background-color: red; */
-width: 100%;
-overflow-x: hidden;
-height: 100%;
-color: ${({theme}) => theme.text_primary};
+  background-color: ${({ theme }) => theme.bg};
+  width: 100%;
+  overflow-x: hidden;
+  height: 100%;
+  color: ${({ theme }) => theme.text_primary};
+`;
 
-/* border: 1px solid red;             /////////////////extra */
-`
-
-const Wrapper =styled.div`
-padding-bottom: 100px;
-background: linear-gradient(38.73deg,
-rgba(204 , 0 , 187 , 0.15) 0%,
-rgba(201 , 32 ,184 ,0) 50%),
-linear-gradient( 
-   141.27deg ,
-    rgba(0,70,209,0) 50%,
-    rgba(0,70,209,0.15) 100%
-
-);
-width: 100%;
-clip-path: polygon(0 0,100% 0 , 100% 100% , 30%  98% , 0  100%);
-
-;
-`
+const Wrapper = styled.div`
+  padding-bottom: 100px;
+  background: linear-gradient(
+      38.73deg,
+      rgba(204, 0, 187, 0.15) 0%,
+      rgba(201, 32, 184, 0) 50%
+    ),
+    linear-gradient(
+      141.27deg,
+      rgba(0, 70, 209, 0) 50%,
+      rgba(0, 70, 209, 0.15) 100%
+    );
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
+`;
 
 const FooterSection = styled.div`
-
-padding-top: 150px;
-`
+  padding-top: 150px;
+`;
 
 function App() {
-  return (
+  const [showLoader, setShowLoader] = useState(true);
 
+  useEffect(() => {
+    // Show loader at least for 4 seconds
+    const timeout = setTimeout(() => setShowLoader(false), 4000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
-       <Navbar/>
+        {showLoader ? (
+          <Loader />
+        ) : (
+          <Suspense fallback={<Loader />}>
+            <Navbar />
+            <Body>
+              <StyledStarCanvas />
+              <HeroSection />
 
-       <Body>
+              <Wrapper>
+                <Skills />
+                <Experience />
+              </Wrapper>
 
-        <StyledStarCanvas/>
-        
-        <HeroSection/>
+              <Wrapper>
+                <Education />
+              </Wrapper>
 
-        <Wrapper>
-        <Skills/>
-        <Experience/>
-        </Wrapper>
+              <Wrapper>
+                <Achievements />
+              </Wrapper>
 
+              <Wrapper>
+                <Contact />
+              </Wrapper>
 
-          {/* <Projects/> */}
-
-
-         <Wrapper>
-
-          <Education/>
-         </Wrapper>
-
-
-
-           <Wrapper>
-          <Achievements/>
-         </Wrapper>
-         <Wrapper>
-          <Contact/>
-         </Wrapper>
-
-
-
-         <Footer/>
-         
-       </Body>
+              <Footer />
+            </Body>
+          </Suspense>
+        )}
       </BrowserRouter>
     </ThemeProvider>
-
-  )
+  );
 }
 
-
-
-export default App
+export default App;
