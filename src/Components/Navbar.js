@@ -94,12 +94,13 @@ padding: 0 6px;
 `
 
 const GitButton = styled.a`
-border: 1px solid ${({ theme }) => theme.primary};
+/* border: 1px solid ${({ theme }) => theme.primary}; */
 border-radius: 30px;
 padding: 5px 10px;
 cursor: pointer;
 text-decoration: none;
 font-size: 16px;
+margin-right: 5px;
 font-weight: 500;
 color: ${({ theme }) => theme.primary};
 &:hover{
@@ -240,11 +241,21 @@ function Navbar() {
                        <img src="github.png" alt="" 
                         width={40} height={40}/>
                     </GitButton>
+                    <GitButton  href="https://nidharsanmodel.netlify.app/"
+  target="_blank" style={{background:theme.primary,color:theme.text_primary}} >
+                       <img src="model.png" alt="" 
+                        width={40} height={40}/>
+                    </GitButton>
                 </MobileMenu>
 
                 <ButtonContainer>
                     <GitButton href={Bio.github} target='_blank'>
                       <img src="github.png" alt="" 
+                        width={40} height={40}/>
+                    </GitButton>
+                    <GitButton href="https://nidharsanmodel.netlify.app/"
+  target="_blank">
+                      <img src="model.png" alt="" 
                         width={40} height={40}/>
                     </GitButton>
                 </ButtonContainer>
