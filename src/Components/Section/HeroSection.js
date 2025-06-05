@@ -104,7 +104,7 @@ const HeroContainer = styled.div`
   justify-content: center;
   position: relative;
   padding: 80px 30px;
-  min-height: 90vh;
+  min-height: 100vh;
   z-index: 1;
 
   @media (max-width:960px) {
@@ -346,6 +346,7 @@ const FlipCardInner = styled.div`
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
+  
 
   
   ${FlipCard}:hover & {
