@@ -303,7 +303,7 @@ const Achievements = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        The monumental accomplishments of Madara Uchiha that shaped the shinobi world
+        Here are some of my notable achievements that reflect my dedication, creativity, and passion for technology and sports. Each accomplishment represents a significant milestone in my journey, showcasing my commitment to excellence and innovation.
       </Desc>
       
       <CarouselContainer

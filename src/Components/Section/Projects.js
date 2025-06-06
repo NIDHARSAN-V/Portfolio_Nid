@@ -56,15 +56,27 @@ const Desc = styled.div`
 
 const ToggleButtonGroup = styled.div`
   display: flex;
-  border: 1.5px solid ${({ theme }) => theme.primary};
+  border: 1.5px solid ${({ theme }) => theme.primary + '80'};
   color: ${({ theme }) => theme.primary};
   border-radius: 12px;
   font-size: 16px;
   font-weight: 500;
   margin: 22px 0;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background-color: ${({ theme }) => theme.card + 'aa'};
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+  }
 
   @media (max-width: 768px) {
     font-size: 12px;
+    backdrop-filter: blur(6px);
   }
 `
 
@@ -72,42 +84,64 @@ const ToggleButton = styled.div`
   padding: 8px 18px;
   border-radius: 6px;
   cursor: pointer;
-  background-color: ${({ active, theme }) => (active ? theme.primary + '70' : 'transparent')};
-  transition: background-color 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.primary + '70'};
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${({ active, theme }) => 
+      active 
+        ? `linear-gradient(135deg, ${theme.primary + 'aa'}, ${theme.primary + '70'})`
+        : 'transparent'};
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+
+  &:hover::before {
+    background: ${({ theme }) => 
+      `linear-gradient(135deg, ${theme.primary + '70'}, ${theme.primary + '40'})`};
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 
   @media (max-width: 768px) {
-    padding: 6px 8px;
+    padding: 6px 12px;
     border-radius: 4px;
   }
 `
 
 const Divider = styled.div`
   width: 1.5px;
-  background-color: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => 
+    `linear-gradient(to bottom, transparent, ${theme.primary + '80'}, transparent)`};
+  margin: 4px 0;
 `
 
 const CardContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 28px;
-flex-wrap: wrap;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 20px 0;
 `
-
 
 function Projects() {
     const [toggle, setToggle] = useState("all")
 
     return (
-        <Container id="Projects">
+        <Container id="projects">
             <Wrapper>
                 <Title>Projects</Title>
-
                 <Desc>These are my projects, some with innovation and creativity</Desc>
 
                 <ToggleButtonGroup>
@@ -131,7 +165,6 @@ function Projects() {
                     >
                         ML
                     </ToggleButton>
-
                     <Divider />
                     <ToggleButton
                         active={toggle === "network"}
@@ -140,22 +173,24 @@ function Projects() {
                         NETWORK
                     </ToggleButton>
                     <Divider />
-
                     <ToggleButton
                         active={toggle === "cyber"}
                         onClick={() => setToggle("cyber")}
                     >
                         CYBERSEC
                     </ToggleButton>
-
                 </ToggleButtonGroup>
 
-<CardContainer>
-    {toggle === "all" && projects.map((project) =><ProjectsCard project={project}/>)}
-
-    {projects.filter((item)=> item.category==toggle).map((project) =><ProjectsCard project={project}/>)}
-</CardContainer>
-
+                <CardContainer>
+                    {toggle === "all" && projects.map((project, index) => 
+                        <ProjectsCard key={index} project={project} />)
+                    }
+                    {toggle !== "all" && projects
+                        .filter((item) => item.category === toggle)
+                        .map((project, index) => 
+                            <ProjectsCard key={index} project={project} />)
+                    }
+                </CardContainer>
             </Wrapper>
         </Container>
     )

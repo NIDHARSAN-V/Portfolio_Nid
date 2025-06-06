@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 import { darkTheme } from './Utils/Themes';
 import Loader from './Loader'; // Your loader component
+import Certifications from './Components/Section/Certifications';
 
 // Lazy load all components
 const Navbar = React.lazy(() => import('./Components/Navbar'));
@@ -75,8 +76,14 @@ function App() {
                 <Education />
               </Wrapper>
 
+              <Projects />
+
               <Wrapper>
                 <Achievements />
+              </Wrapper>
+
+              <Wrapper>
+                <Certifications/>
               </Wrapper>
 
               <Wrapper>
