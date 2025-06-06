@@ -82,9 +82,8 @@ function App() {
                 <Achievements />
               </Wrapper>
 
-              <Wrapper>
                 <Certifications/>
-              </Wrapper>
+          
 
               <Wrapper>
                 <Contact />
