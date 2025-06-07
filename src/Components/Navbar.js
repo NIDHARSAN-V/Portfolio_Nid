@@ -81,6 +81,7 @@ const ButtonContainer = styled.div`
 
 const GitButton = styled.a`
   border-radius: 30px;
+  position: relative;
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
@@ -93,6 +94,12 @@ const GitButton = styled.a`
     background-color: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.text_primary};
     transition: ease-in-out 0.3s;
+  }
+  &
+  :hover::after {
+    content: attr(data-label);  
+    position: absolute;
+   
   }
 `
 
@@ -192,20 +199,22 @@ function Navbar() {
                     <NavLink onClick={() => setisopen(!isopen)} href="#Skills">Skills</NavLink>
                     <NavLink onClick={() => setisopen(!isopen)} href="#Achievements">Achievements</NavLink>
                     <NavLink onClick={() => setisopen(!isopen)} href="#Projects">Projects</NavLink>
-                    <GitButton 
-                        href={Bio.github}  
-                        target='_blank' 
-                        style={{ background: theme.primary, color: theme.text_primary }}
-                    >
-                        <img src="github.png" alt="GitHub" width={40} height={40} />
-                    </GitButton>
-                    <GitButton  
-                        href="https://nidharsanmodel.netlify.app/"
-                        target="_blank" 
-                        style={{ background: theme.primary, color: theme.text_primary }}
-                    >
-                        <img src="model.png" alt="Model" width={40} height={40} />
-                    </GitButton>
+                  <GitButton 
+  href={Bio.github}  
+  target='_blank' 
+  data-label="GitHub"
+>
+  <img src="github.png" alt="GitHub" width={40} height={40} />
+</GitButton>
+
+<GitButton 
+  href="https://nidharsanmodel.netlify.app/"  
+  target='_blank' 
+  data-label="My Models"
+>
+  <img src="model.png" alt="Model" width={40} height={40} />
+</GitButton>
+
                 </MobileMenu>
 
                 <ButtonContainer>

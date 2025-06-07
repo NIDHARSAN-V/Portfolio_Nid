@@ -147,7 +147,20 @@ const Button = styled.a`
   text-decoration: none;
   font-weight: 600;
   text-align: center;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: ${({ theme }) => theme.text_primary};
+    background-color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+    box-shadow: 0 4px 12px rgba(102, 51, 153, 0.4);
+    transform: scale(1.05);
+  }
 `;
+
 
 function ProjectsCard({ project }) {
   const [expanded, setExpanded] = useState(false);
