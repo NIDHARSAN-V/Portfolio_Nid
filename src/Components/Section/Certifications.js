@@ -79,7 +79,7 @@ const CertificationImage = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-
+//hello
 const CertificationInfo = styled.div`
   position: absolute;
   bottom: -100%;
