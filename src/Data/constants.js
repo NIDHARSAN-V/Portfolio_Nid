@@ -422,10 +422,10 @@ degree: "CBSE X"
 export const projects = [
   {
     id: 11,
-    title: "DecisionHub",
-    date: "Jan 2024 - Dec 2023",
+    title: "SignBridge",
+    date: "",
     description:
-      "A Rule Builder application “Decision Hub” that empowers Business Analysts to create, save, and visualize decision strategies. Provide a no-code rule writing experience and visual representation to test these rules in real-time and observe the calculations at each step.",
+      "SignBridge is an innovative real-time translator that bridges communication between hearing and non-hearing individuals. It provides bi-directional conversion: from voice to sign language using NLP and 3D avatar animation, and from sign language to voice or text using deep learning and computer vision. The system is powered by advanced models, including CNNs for spatial recognition and LSTMs for understanding temporal gesture sequences.",
     image:
       "https://github.com/rishavchanda/DecisionHub/raw/master/assets/testRule.jpg",
     tags: [
