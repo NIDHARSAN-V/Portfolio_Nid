@@ -436,14 +436,14 @@ export const projects = [
       "Redux",
       "React Flow",
     ],
-    category: "web app",
+    category: "AI",
     github: "https://github.com/rishavchanda/DecisionHub",
     webapp: "https://decisionhub.netlify.app/",
   },
   {
     id: 9,
-    title: "Trackify",
-    date: "Jun 2023 - Jul 2023",
+    title: "VoalScan",
+    date: "",
     description:
       "Trackify is a web application designed to streamline task management and enhance productivity in the workplace. It provides a user-friendly interface for employers to keep track of their employees' daily work activities and empowers employees to log their tasks efficiently. \nAdmin Credentials: # Email: testadmin@gmail.com #Password- 123@testadmin, Employee Credentials:	#Email: testemployee@gmail.com	#Password- 123@Testemployee",
     image:
