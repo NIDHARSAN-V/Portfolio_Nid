@@ -290,7 +290,7 @@ const Achievements = () => {
   };
 
   return (
-    <Container>
+    <Container id="achievement">
       <Title
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -462,5 +462,5 @@ function animate({ from, to, duration, onUpdate }) {
     stop: () => cancelAnimationFrame(requestId)
   };
 }
-
+//comments added 
 export default Achievements;

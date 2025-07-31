@@ -10,7 +10,7 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1rem;
   position: sticky;
   top: 0;
   z-index: 10000;
@@ -134,11 +134,13 @@ const MenuRounded = styled.div`
 const MobileMenu = styled.ul`
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 16px;
   padding: 12px 40px 24px 40px;
-  background-color: ${({ theme }) => theme.card_light + 99};
+  background-color: rgba(0, 0, 0, 0.8);
+
   position: absolute;
   top: 80px;
   right: 0;
@@ -149,6 +151,10 @@ const MobileMenu = styled.ul`
   opacity: ${({ isopen }) => (isopen ? "100%" : "0")};
   z-index: ${({ isopen }) => (isopen ? "1000" : "-1000")};
 `
+
+
+//updated navbar
+
 
 function Navbar() {
     const [isopen, setisopen] = useState(false)
@@ -172,6 +178,8 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [prevScrollPos, visible])
 
+
+
     return (
         <Nav style={{ top: visible ? '0' : '-80px' }}>
             <NavbarContainer>
@@ -187,35 +195,46 @@ function Navbar() {
                     </MenuRounded>
                 </MobileIcon>
 
-                <NavItems>
-                    <NavLink href="#About">About</NavLink>
-                    <NavLink href="#Skills">Skills</NavLink>
-                    <NavLink href="#Achievements">Achievements</NavLink>
-                    <NavLink href="#Projects">Projects</NavLink>
-                </NavItems>
+           <NavItems>
+  <NavLink href="#about">About</NavLink>
+  <NavLink href="#skills">Skills</NavLink>
+  <NavLink href="#experience">Experience</NavLink>
+  <NavLink href="#education">Education</NavLink>
+  <NavLink href="#projects">Projects</NavLink>
+  <NavLink href="#achievements">Achievements</NavLink>
+  <NavLink href="#certifications">Certifications</NavLink>
+</NavItems>
 
-                <MobileMenu isopen={isopen}>
-                    <NavLink onClick={() => setisopen(!isopen)} href="#About">About</NavLink>
-                    <NavLink onClick={() => setisopen(!isopen)} href="#Skills">Skills</NavLink>
-                    <NavLink onClick={() => setisopen(!isopen)} href="#Achievements">Achievements</NavLink>
-                    <NavLink onClick={() => setisopen(!isopen)} href="#Projects">Projects</NavLink>
-                  <GitButton 
-  href={Bio.github}  
-  target='_blank' 
-  data-label="GitHub"
->
-  <img src="github.png" alt="GitHub" width={40} height={40} />
-</GitButton>
+<MobileMenu isopen={isopen}>
+  <NavLink onClick={() => setisopen(false)} href="#about">About</NavLink>
+  <NavLink onClick={() => setisopen(false)} href="#skills">Skills</NavLink>
+  <NavLink onClick={() => setisopen(false)} href="#experience">Experience</NavLink>
+  <NavLink onClick={() => setisopen(false)} href="#education">Education</NavLink>
+  <NavLink onClick={() => setisopen(false)} href="#projects">Projects</NavLink>
+  <NavLink onClick={() => setisopen(false)} href="#achievements">Achievements</NavLink>
+  <NavLink onClick={() => setisopen(false)} href="#certifications">Certifications</NavLink>
 
-<GitButton 
-  href="https://nidharsanmodel.netlify.app/"  
-  target='_blank' 
-  data-label="My Models"
->
-  <img src="model.png" alt="Model" width={40} height={40} />
-</GitButton>
+  <GitButton 
+    href={Bio.github}  
+    target="_blank" 
+    data-label="GitHub"
+  >
+    <img src="github.png" alt="GitHub" width={40} height={40} />
+  </GitButton>
 
-                </MobileMenu>
+
+
+  <GitButton 
+    href="https://nidharsanmodel.netlify.app/"  
+    target="_blank" 
+    data-label="My Models"
+  >
+    <img src="model.png" alt="Model" width={40} height={40} />
+  </GitButton>
+
+
+</MobileMenu>
+
 
                 <ButtonContainer>
                     <GitButton href={Bio.github} target='_blank'>
@@ -230,4 +249,13 @@ function Navbar() {
     )
 }
 
-export default Navbar
+
+export default Navbar;
+
+
+
+
+
+
+
+

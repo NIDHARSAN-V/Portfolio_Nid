@@ -80,7 +80,7 @@ const EarAni = styled.div`
 
 function Education() {
   return (
-    <Container id='Education'>
+    <Container id='education'>
 
               <Wrapper>
                 <Title>

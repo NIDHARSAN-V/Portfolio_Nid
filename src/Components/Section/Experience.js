@@ -79,7 +79,7 @@ flex-direction: column; */
 
 function Experience() {
   return (
-    <Container id='Education'>
+    <Container id='experience'>
 
               <Wrapper>
                 <Title>

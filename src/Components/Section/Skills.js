@@ -146,7 +146,7 @@ height: 24px;
 
 function Skills() {
   return (
-    <Container id='Skills'>
+    <Container id='skills'>
          <Wrapper>
             <Title>
                 Skills

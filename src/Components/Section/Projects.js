@@ -139,7 +139,7 @@ function Projects() {
     const [toggle, setToggle] = useState("all")
 
     return (
-        <Container id="projects">
+        <Container id="project">
             <Wrapper>
                 <Title>Projects</Title>
                 <Desc>These are my projects, some with innovation and creativity</Desc>
